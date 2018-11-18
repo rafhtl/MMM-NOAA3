@@ -34,16 +34,18 @@ module.exports = NodeHelper.create({
     socketNotificationReceived: function(notification, payload) {
         if (notification === "MMM-NOAA3") {
 			this.sendSocketNotification('MMM-NOAA3');
-            //this.getLatLon();
-            //this.path = "modules/MMM-NOAA3/latlon.json";
+            this.path = "modules/MMM-NOAA3/latlon.json";
             this.provider = this.getProviderFromConfig(payload);
             this.provider.addModuleConfiguration(payload);
 			this.config = payload;
             this.getData();
             this.getSRSS();
-            this.getAIR();
-			//this.getLatLon();
+            this.getAIR(); 
 			this.getMoonData();
+			if (this.providers[config.provider] == 'ds'){
+				console.log(this.providers[config.provider]);
+				 this.getALERT()
+		    };
         }
         this.scheduleUpdate(this.config.updateInterval);
     },
@@ -54,49 +56,29 @@ module.exports = NodeHelper.create({
             console.log('NOAA3 weather updated.. next update in 1 hour');
             self.getData();
             self.getSRSS();
-            self.getAIR();
-			//self.getLatLon();
-			self.getMoonData();
+            self.getAIR(); 
+			self.getALERT(); 
+			//console.log(this.providers[this.config.provider]);
+			if (self.providers[config.provider] == 'ds'){self.getALERT()};
         }, self.config.updateInterval);
     },
-
-  /*  getLatLon: function() {
-        var self = this;
-        request({
-            url: "http://ip-api.com/json",
-            method: 'GET'
-        }, (error, response, body) => {
-            if (self.provider) {
-                var info = JSON.parse(body);
-                var lat = info.lat;
-                var lon = info.lon;
-                var zip = info.zip;
-                var city = info.city;
-                info = {
-                    lat: lat,
-                    lon: lon,
-                    zip: zip,
-                    city: city
-                };
-                fs.writeFile(this.path, JSON.stringify(info),
-                    function(error) {
-                        return console.log('NOAA_3 is running');
-                    });
-            }
-        });
-    }, */
 	
 	getMoonData: function() {
         var self = this;
-		var date = moment().format('M/D/YYYY');
-        request({
-            url: "http://api.usno.navy.mil/moon/phase?date="+date+"&nump=1",
+		var date = moment().unix();
+		console.log(date);
+		//var date = moment().format('M/D/YYYY');
+        request({ 
+			  url: "http://api.farmsense.net/v1/moonphases/?d="+date,
+			//url: "https://mykle.herokuapp.com/moon",
             method: 'GET'
         }, (error, response, body) => {
             if (self.provider) {
-                var moons = JSON.parse(body); 
-                var moon = moons.phasedata[0].phase; 
-                }; 
+                var moons = JSON.parse(body);  
+				//console.log(moons);
+                var moon = moons[0]['Phase']; 
+                //console.log(moon);
+				}; 
 				 self.sendSocketNotification("MOON_RESULT", moon ? moon : 'NO_MOON_DATA');
                     });
            // }
@@ -106,7 +88,7 @@ module.exports = NodeHelper.create({
     getData: function() {
         var self = this;
         self.provider.getData(function(response) {
-            self.sendSocketNotification("WEATHER_RESULT", response ? response : 'NO_WEATHER_RESULT');
+            self.sendSocketNotification("WEATHER_RESULT", response ? response : 'NO_WEATHER_RESULT'); 
         });
     },
 
@@ -131,17 +113,18 @@ module.exports = NodeHelper.create({
         });
     },
 
-  /*  getALERT: function() {
+   getALERT: function() {
         var self = this;
         self.provider.getALERT(function(response) {
             self.sendSocketNotification("ALERT_RESULT", response ? response : 'NO_ALERT_DATA');
         });
-    }, */
+    },
 
     getProviderFromConfig: function(config) {
         if (!this.providers[config.provider]) {
             throw new Error('Invalid config No provider selected');
         }
+		console.log(this.providers[config.provider]);
         return require('./providers/' + this.providers[config.provider] + '.js');
     }
 });
