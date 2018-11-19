@@ -71,9 +71,9 @@ Module.register("MMM-NOAA3", {
 		moon: {
 			"Last Quarter": 'modules/MMM-NOAA3/images/moon/thirdquarter.png',
 			"New Moon": 'modules/MMM-NOAA3/images/moon/newmoon.png',
-			"Waxing Crescent": 'modules/MMM-NOAA3/images/moon/waxingcrescent.png',
+			"Waxing": 'modules/MMM-NOAA3/images/moon/waxingcrescent.png',
 			"First Quarter": 'modules/MMM-NOAA3/images/moon/firstquarter.png',
-			"Waxing Gibbous ": 'modules/MMM-NOAA3/images/moon/waxinggibbous.png',
+			"Waxing Gibbous": 'modules/MMM-NOAA3/images/moon/waxinggibbous.png',
 			"Full Moon": 'modules/MMM-NOAA3/images/moon/fullmoon.png',
 			"Waning Gibbous": 'modules/MMM-NOAA3/images/moon/waninggibbous.png',
 			"Waning Crescent": 'modules/MMM-NOAA3/images/moon/waningcrescent.png'
@@ -187,7 +187,7 @@ Module.register("MMM-NOAA3", {
     },
 	  processMOON: function(data) {
         this.moon = data; 
-//console.log(this.moon);		
+console.log(this.moon);		
     },
 	
     processAIR: function(data) {
@@ -205,12 +205,12 @@ Module.register("MMM-NOAA3", {
 			 icon = weather.icon;
 			 sunset = this.srss.sunset;
 	    this.sendNotification("WEATHER", {icon , sunset});
-		 this.loaded = true;
-		//console.log('Icon and Sunset sent: '+ icon +"  " +sunset);
+		 this.loaded = true; 
     },
 	
 	processALERT: function(data) {
-        this.issue = data.alerts;  
+        this.issue = data.alerts;
+console.log(this.issue);		
     },
 	
 	scheduleCarousel: function() {
@@ -477,7 +477,8 @@ Module.register("MMM-NOAA3", {
 
 				var emer = document.createElement("div");
 				emer.classList.add('warning', 'bright');
-				emer.innerHTML = issue.title + " -- <br>" + issue.description;
+				var str2 = issue.description.replace(/(([^\s]+\s\s*){30})(.*)/,"$1…");
+				emer.innerHTML = issue.title + "<span class='tooltiptext'>" + str2+ "</span> ";
 				wrapper.appendChild(emer);
 
 				var area = document.createElement("div");
