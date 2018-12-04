@@ -99,6 +99,11 @@ Will default to EN if NO translation file is found.
 	}
     },
 	```
+	
+It seems that when using Accuweather, the zip code needs to be the 6 digit code from accuweather.com's website found after typing in the zip code into their search bar.
+From Zip Code "13502" returns "329671"-which is what I put in my config file in order to get it to display local weather.
+zip: '329671', //MUST have valid zip Code
+	
 * Accuweather Example:
 	```
 	 {
