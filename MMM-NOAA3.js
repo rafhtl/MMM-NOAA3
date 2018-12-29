@@ -10,9 +10,8 @@ Module.register("MMM-NOAA3", {
     defaults: {
         animationSpeed: 0,
         initialLoadDelay: 8000,
-        rotateInterval: 60 * 1000,
-		//updateInterval: 10 * 1000,
-		updateInterval: 30 * 60 * 1000,
+        rotateInterval: 60 * 1000, 
+	updateInterval: 30 * 60 * 1000,
         apiKey: "",
         airKey: "",
         pws: "",
