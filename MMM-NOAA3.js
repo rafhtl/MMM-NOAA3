@@ -358,18 +358,26 @@ console.log(this.issue);
 	// console.log("Now :"+ev1 + " Rise: "+ ev2+" Set:  "+ev3);	
 		var lastDiv = document.createElement('div');
         var level = this.air.aqius;
-      /*this.air.aqius  > 0 && this.air.aqius <= 50 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Excellent') + "</span>": 
-      this.air.aqius > 50 && this.air.aqius <= 100 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Good') + "</span>" :
-	  this.air.aqius > 100 && this.air.aqius <= 150 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Lightly Polluted') + "</span>":
-	  this.air.aqius > 151 && this.air.aqius <= 200 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Moderately Polluted') + "</span>":
-	  this.air.aqius > 201 && this.air.aqius <= 300 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Heavily Polluted') + "</span>":
-	  this.air.aqius + "<span class='CellComment'>Severely Polluted</span></div>";	*/	
+
+        this.air.aqius  > 0 && this.air.aqius <= 50 ? level = this.translate('Excellent') : 
+        this.air.aqius > 50 && this.air.aqius <= 100 ? level = this.translate('Good') :
+	    this.air.aqius > 100 && this.air.aqius <= 150 ? level = this.translate('Lightly Polluted') :
+	    this.air.aqius > 151 && this.air.aqius <= 200 ? level = this.translate('Moderately Polluted') :
+	    this.air.aqius > 201 && this.air.aqius <= 300 ? level = this.translate('Heavily Polluted') :
+	    level = this.translate('Severely Polluted');
+
+        /*this.air.aqius  > 0 && this.air.aqius <= 50 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Excellent') + "</span>": 
+        this.air.aqius > 50 && this.air.aqius <= 100 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Good') + "</span>" :
+	    this.air.aqius > 100 && this.air.aqius <= 150 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Lightly Polluted') + "</span>":
+	    this.air.aqius > 151 && this.air.aqius <= 200 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Moderately Polluted') + "</span>":
+	    this.air.aqius > 201 && this.air.aqius <= 300 ? this.air.aqius + "<span class='CellComment'>" + this.translate('Heavily Polluted') + "</span>":
+	    this.air.aqius + "<span class='CellComment'>Severely Polluted</span></div>";	*/	
 		lastDiv.innerHTML=
 		`<div class="divTable">
    <div class="divTableBody">
   
       <div class="divTableRow">
-         <div class="divTableHead">AQI</div>
+         <div class="divTableHead">${this.translate("AQI")}</div>
          <div class="divTableHead">${(ev1 >= ev2 && ev1 <= ev3) ? "UV": this.translate("Night")}</div>
          <div class="divTableHead">${this.translate("Wind")}</div>
       </div>

@@ -1,7 +1,7 @@
 {
-"Rise" : "Augmenter",
-"Set":"Ensemble", 
-"4 Day Forecast":"Prévoir",
+"Rise" : "Lever",
+"Set":"Coucher", 
+"4 Day Forecast":"Prévision",
 "Monday": "Lundi",
 "Tuesday": "Mardi",
 "Wednesday": "Mercredi",
@@ -9,9 +9,9 @@
 "Friday": "Vendredi",
 "Saturday": "samedi",
 "Sunday": "dimanche",
-"Hours of Light":"Lumière",
+"Hours of Light":"Durée",
 "Last Updated": "Actualisé",
- "Today":"ce jour",
+"Today":"ce jour",
 "Mon":"lun",
 "Tue":"mar",
 "Wed":"mer",
@@ -28,5 +28,13 @@
 "Lightly Polluted":"Légèrement pollué",
 "Moderately Polluted":"Modérément pollué",
 "Heavily Polluted":"Fortement pollué",
-"Forecast":"Prévoir"
-  }
+"Forecast":"Prévision",
+"Night":"Nuit",
+"Wind":"Vent",
+"AQI":"Air",
+"Excellent": "Excellent",
+"Good" : "Bon",
+"Lightly Polluted" :"Légèr. Pollué",
+"Moderately Polluted" :"Pollué",
+"Heavily Polluted" :"Très pollué"
+}
