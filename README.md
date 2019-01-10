@@ -30,7 +30,7 @@ Remember not all providers are created equal... Some are a bit better than other
 * weatherunlocked ~ https://developer.weatherunlocked.com/   [provides both api and appid keys, need them both, see example]
 * accuweather ~ https://developer.accuweather.com/
 * openweather ~ https://openweathermap.org/api
-* yahoo [NO API key needed for this one]
+* yahoo [AS OF 1/3/2019 YAHOO WEATHER API NO LONGER WORKS, IT'S BEEN RETIRED]
  
 ##    YOU WILL NEED YOUR LATITUDE AND LONGITUDE
  You can find them right here: 
