@@ -53,7 +53,7 @@ Will default to EN if NO translation file is found.
 * weatherunlocked 
 * accuweather  
 * openweather 
-* yahoo  [ONLY works for English language at the moment]
+*  AS OF 1/3/2019 THIS WILL NO LONGER WORK yahoo 
     
 * For all of them EXCEPT YAHOO and WEATHERUNLOCKED
      ```   {
@@ -87,17 +87,7 @@ Will default to EN if NO translation file is found.
 	```
 * Yahoo Example:
 	```
-	 {
-        module: 'MMM-NOAA3',
-	position: 'top_left',
-        config: {
-		    provider: "Yahoo",   
-		    airKey: "YOUR API KEY", 
-	        css: "NOAA3",                 // THIS MUST CONTAIN A CSS STYLE NAME 
-		userlat: "xxxx", //MUST HAVE BOTH
-	        userlon: "xxxx"  //MUST HAVE BOTH
-	}
-    },
+	 AS OF 1/3/2019 THE YAHOO API WAS RETIRED AND NO LONGER WORKS.
 	```
 	
 It seems that when using Accuweather, the zip code needs to be the 6 digit code from accuweather.com's website found after typing in the zip code into their search bar.
