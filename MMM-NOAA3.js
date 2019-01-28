@@ -76,7 +76,8 @@ Module.register("MMM-NOAA3", {
 			"Full Moon": 'modules/MMM-NOAA3/images/moon/fullmoon.png',
 			"Waning Gibbous": 'modules/MMM-NOAA3/images/moon/waninggibbous.png',
 			"Waning Crescent": 'modules/MMM-NOAA3/images/moon/waningcrescent.png',
-			"Waxing Crescent": 'modules/MMM-NOAA3/images/moon/waxingcrescent.png'
+			"Waxing Crescent": 'modules/MMM-NOAA3/images/moon/waxingcrescent.png',
+			"3rd Quarter":'modules/MMM-NOAA3/images/moon/thirdquarter.png'
 		}
     },
 
