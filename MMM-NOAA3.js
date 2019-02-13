@@ -30,7 +30,8 @@ Module.register("MMM-NOAA3", {
             "zh_cn": "zh-CN",
             "da": "da",
             "nl": "nl-NL",
-            "nb": "nb-NO"
+            "nb": "nb-NO",
+	    "gr": "gr"
         },
 
         langTrans: {
@@ -43,6 +44,7 @@ Module.register("MMM-NOAA3", {
             "da": "DK",
             "nl": "NL",
             "nb": "NO",
+	    "gr": "GR"
         },
 
         levelTrans: {
@@ -93,7 +95,8 @@ Module.register("MMM-NOAA3", {
             zh_cn: "translations/zh_cn.json",
             nl: "translations/nl.json",
             nb: "translations/nb.json",
-			it: "translations/it.json"
+	    it: "translations/it.json",
+	    gr: "translations/gr.json"
         };
 
     },
