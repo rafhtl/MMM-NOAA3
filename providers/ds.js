@@ -36,14 +36,22 @@
 		   this.config.userlon = moduleConfig.userlon; 
         }, 
 
+      
       getData: function(callback) {
 		 var self = this;
+		 if (config.language != 'gr') { 
 		 url = "https://api.darksky.net/forecast/"+this.config.apiKey+"/"+this.config.userlat+","+this.config.userlon+"?lang="+config.language;
-         request(url, function (error, response, body) {
-             if (error) {
+	     } else {
+		 url = "https://api.darksky.net/forecast/"+this.config.apiKey+"/"+this.config.userlat+","+this.config.userlon+"?lang=el";
+		 } 
+		 request(url, function (error, response, body) {
+            
+			 if (error) {
+			 
                  console.log("Error: " + err.message);
                  callback(null);
              }
+			 console.log(config.language);
              callback(self.parseResponse(body));
          });
      },
