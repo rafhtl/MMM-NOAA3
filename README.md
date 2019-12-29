@@ -182,7 +182,7 @@ You can add this to your config.js to change it if you'd like ... like this ->
 ![](examples/44.png) 
 ![](examples/45.png)
 
-## NOAA5 (Color style #3)
+## NOAA5 (More condensed)
 ![](examples/noaa5.PNG)
 
 ## What's the mouseover?
