@@ -64,9 +64,11 @@
          for (var i = 0; i < result.daily.data.length; i++) {
              forecast[i] = result.daily.data[i];
              var now = moment.unix(forecast[i].time).format('ddd');
+			 var DayDate = moment.unix(forecast[i].time).format('M/D');
              var newDay = {
                  date: {
-                     weekday_short: now
+                     weekday_short: now,
+					 weekday_date: DayDate
                  }
              };
              forecast[i] = Object.assign(forecast[i], newDay);
@@ -180,7 +182,7 @@
         var air = JSON.parse(response);
         airdata = {
             air: air.data.current.pollution
-        }
+        } 
         return airdata;
     },
 

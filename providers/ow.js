@@ -180,10 +180,11 @@ url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+this.config.u
              forecast[i] = result.list[i];
 	
 			var day = moment.unix(forecast[i].dt).utc().format('ddd');
-			
-			var newDay = {
+			var DayDate = moment.unix(forecast[i].time).format('M/D');
+             var newDay = {
                  date: {
-                     weekday_short: day
+                     weekday_short: now,
+					 weekday_date: DayDate
                  }
              };
 			forecast[i] = Object.assign(forecast[i], newDay);

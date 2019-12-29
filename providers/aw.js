@@ -151,9 +151,11 @@ var provider = {
              forecast[i] = results.DailyForecasts[i];
 		   
 		   var now = moment(forecast[i].Date).format('ddd');
+		   var DayDate = moment.unix(forecast[i].time).format('M/D');
              var newDay = {
                  date: {
-                     weekday_short: now
+                     weekday_short: now,
+					 weekday_date: DayDate
                  }
              };
 		 

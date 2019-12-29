@@ -111,9 +111,11 @@ var lat, lon, zip, city;
       
              forecast[i] = result.data[i];
              var now = moment(forecast[i].datetime, "YYYY-MM-DD").format('ddd');
+             var DayDate = moment.unix(forecast[i].time).format('M/D');
              var newDay = {
                  date: {
-                     weekday_short: now
+                     weekday_short: now,
+					 weekday_date: DayDate
                  }
              };
              forecast[i] = Object.assign(forecast[i], newDay);

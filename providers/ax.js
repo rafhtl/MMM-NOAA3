@@ -203,9 +203,11 @@ var lat, lon, city, zip;
              }
 			 
 			 var now = getDayOfWeek(forecast[i].date);
+             var DayDate = moment.unix(forecast[i].time).format('M/D');
              var newDay = {
                  date: {
-                     weekday_short: now
+                     weekday_short: now,
+					 weekday_date: DayDate
                  }
              };
              forecast[i] = Object.assign(forecast[i], newDay);
