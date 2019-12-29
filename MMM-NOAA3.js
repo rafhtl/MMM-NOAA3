@@ -114,7 +114,7 @@ Module.register("MMM-NOAA3", {
         var mm = date.getUTCMinutes();
         var ss = date.getSeconds();
         if (hh < 10) {
-            hh = "0" + hh;
+            hh =  hh;
         }
         if (mm < 10) {
             mm = "0" + mm;
@@ -137,8 +137,11 @@ Module.register("MMM-NOAA3", {
             return ["modules/MMM-NOAA3/css/MMM-NOAA2.css"];
         } else if (this.config.css == "NOAA1") {
 			return ["modules/MMM-NOAA3/css/MMM-NOAA1.css"];
+		} else if (this.config.css == "NOAA4") {
+			return ["modules/MMM-NOAA3/css/MMM-NOAA4.css"]; 
+			 
 		} else {
-			return ["modules/MMM-NOAA3/css/MMM-NOAA4.css"];
+			return ["modules/MMM-NOAA3/css/MMM-NOAA5.css"];
 		}
     },
 
@@ -341,9 +344,9 @@ console.log(this.issue);
       </div>
 	 
       <div class="divTableRow">
-         <div class="divTableCell">${sunrise}</div>
+         <div class="divTableCell">${sunrise} am</div>
          <div class="divTableCell">${this.secondsToString()}</div>
-         <div class="divTableCell">${sunset}</div>
+         <div class="divTableCell">${sunset} pm</div>
       </div>
    </div>
 </div>`; 
@@ -390,7 +393,7 @@ console.log(this.issue);
       <div class="divTableRow">
        <div class="divTableCell">${level}</div>
          <div class="divTableCell">${(ev1 >= ev2 && ev1 <= ev3) ? UV : '<img src ='+this.config.moon[this.moon]+' height="27px" width="27px">'}</div>
-         <div class="divTableCell">${(this.config.lang != 'en') ? wind_kph : wind_mph}</div>
+         <div class="divTableCell">${(this.config.lang != 'en') ? wind_kph : wind_mph} mph</div>
       </div>
    </div>
 </div>`; 
@@ -405,13 +408,13 @@ console.log(this.issue);
             ForecastTable.classList.add("table")
             ForecastTable.setAttribute('style', 'line-height: 20%;');
 
-            var FCRow = document.createElement("tr");
-            var jumpy = document.createElement("th");
-            jumpy.setAttribute("colspan", 4);
-            jumpy.classList.add("rheading");
-            jumpy.innerHTML = this.translate("4 Day Forecast");
-            FCRow.appendChild(jumpy);
-            ForecastTable.appendChild(FCRow);
+            //var FCRow = document.createElement("tr");
+            //var jumpy = document.createElement("th");
+            //jumpy.setAttribute("colspan", 4);
+            //jumpy.classList.add("rheading");
+            //jumpy.innerHTML = this.translate("4 Day Forecast");
+            //FCRow.appendChild(jumpy);
+            //ForecastTable.appendChild(FCRow);
 
             var d = new Date();
             var weekday = new Array(7);
@@ -431,8 +434,7 @@ console.log(this.issue);
                 var noaa = forecast[i];
                 var wdshort = document.createElement("td");
                 if (this.config.provider != "weatherunlocked") {
-                    wdshort.classList.add("xsmall", "bright");
-                    //wdshort.setAttribute("style", "padding:11px");
+                    wdshort.classList.add("bright");
                 } else {
                     wdshort.classList.add("dates", "bright");
                     wdshort.setAttribute("style", "padding:11px");
@@ -463,8 +465,8 @@ console.log(this.issue);
                 var noaa = this.current.forecast[i];
                 var temper = document.createElement("td");
                 temper.setAttribute("colspan", "1");
-                temper.classList.add("xsmall","bright");
-                temper.innerHTML = (config.units != "metric") ? Math.round(noaa.high.fahrenheit) + "/" + Math.round(noaa.low.fahrenheit) : Math.round(noaa.high.celsius) + "/" + Math.round(noaa.low.celsius);
+                temper.classList.add("bright");
+                temper.innerHTML = (config.units != "metric") ? Math.round(noaa.high.fahrenheit) + "&#176;/" + Math.round(noaa.low.fahrenheit) +"&#176;": Math.round(noaa.high.celsius) + "&#176;/" + Math.round(noaa.low.celsius)+"&#176;";
                 tempRow.appendChild(temper);
                 ForecastTable.appendChild(tempRow);
             }
