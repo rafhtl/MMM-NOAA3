@@ -516,7 +516,7 @@ console.log(this.issue);
         if (config.timeFormat == 12) {
             var doutput = moment().format("M.D.YYYY");
             var tinput = document.lastModified;
-            var toutput = (moment(tinput.substring(10, 16), 'HH:mm').add(30, 'minutes').format('h:mm a'));
+            var toutput = (moment(tinput.substring(10, 16), 'HH:mm').format('h:mm a'));
         } else {
             var doutput = moment().format("DD.MM.YYYY");
             var tinput = document.lastModified;
