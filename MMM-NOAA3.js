@@ -404,17 +404,8 @@ console.log(this.issue);
 		var forecast = this.current.forecast
         if (forecast != null) {
 
-            var ForecastTable = document.createElement("table");
-            ForecastTable.classList.add("table")
-            ForecastTable.setAttribute('style', 'line-height: 20%;');
-
-            //var FCRow = document.createElement("tr");
-            //var jumpy = document.createElement("th");
-            //jumpy.setAttribute("colspan", 4);
-            //jumpy.classList.add("rheading");
-            //jumpy.innerHTML = this.translate("4 Day Forecast");
-            //FCRow.appendChild(jumpy);
-            //ForecastTable.appendChild(FCRow);
+        var Forecast = document.createElement("div");
+        Forecast.classList.add("dates");  
 
             var d = new Date();
             var weekday = new Array(7);
@@ -427,51 +418,22 @@ console.log(this.issue);
             weekday[6] = "Sat";
 
             var n = this.translate(weekday[d.getDay()]);
+			var Month = d.getMonth()+1;
+			var Day = d.getDate();
 
-
-            var nextRow = document.createElement("tr");
+            var nextRow = document.createElement("div");
             for (i = 0; i < forecast.length; i++) {
-                var noaa = forecast[i];
-                var wdshort = document.createElement("td");
-                if (this.config.provider != "weatherunlocked") {
-                    wdshort.classList.add("bright");
-                } else {
-                    wdshort.classList.add("dates", "bright");
-                    wdshort.setAttribute("style", "padding:11px");
-                }
-                wdshort.innerHTML = (this.translate(noaa.date.weekday_short) == n) ? this.translate("Today") : this.translate(noaa.date.weekday_short);
-                nextRow.appendChild(wdshort);
-                ForecastTable.appendChild(nextRow);
-            }
-
-            var foreRow = document.createElement("tr");
-            for (i = 0; i < this.current.forecast.length; i++) {
-                var noaa = this.current.forecast[i];
-                var fore = document.createElement("td");
-                fore.setAttribute("colspan", "1"); 
-				//fore.setAttribute('style','float: center');
-                fore.classList.add("CellWithComment");
-				if (noaa.date.weekday_short == n){
-				fore.innerHTML = "<img src='modules/MMM-NOAA3/images/" + noaa.icon + ".png' height='22' width='28'>";	
-				} else {
-                fore.innerHTML = "<img src='modules/MMM-NOAA3/images/" + noaa.icon + ".png' height='22' width='28'><span class='CellComment'>" + noaa.desc.desc + "</span>";
-				}
-                foreRow.appendChild(fore);
-                ForecastTable.appendChild(foreRow);
-            }
-
-            var tempRow = document.createElement("tr");
-            for (i = 0; i < this.current.forecast.length; i++) {
-                var noaa = this.current.forecast[i];
-                var temper = document.createElement("td");
-                temper.setAttribute("colspan", "1");
-                temper.classList.add("bright");
-                temper.innerHTML = (config.units != "metric") ? Math.round(noaa.high.fahrenheit) + "&#176;/" + Math.round(noaa.low.fahrenheit) +"&#176;": Math.round(noaa.high.celsius) + "&#176;/" + Math.round(noaa.low.celsius)+"&#176;";
-                tempRow.appendChild(temper);
-                ForecastTable.appendChild(tempRow);
-            }
-
-            wrapper.appendChild(ForecastTable);
+            var noaa = forecast[i];
+		    var weekDay = (this.translate(noaa.date.weekday_short) == n) ? this.translate("Today") : this.translate(noaa.date.weekday_short);
+			var Image = "<img src='modules/MMM-NOAA3/images/" + noaa.icon + ".png' height='22' width='28'>"; 
+			var DayDate = noaa.date.weekday_date; 
+			var Temps = (config.units != "metric") ? Math.round(noaa.high.fahrenheit) + "&#176;/" + Math.round(noaa.low.fahrenheit) +"&#176;": Math.round(noaa.high.celsius) + "&#176;/" + Math.round(noaa.low.celsius)+"&#176;";
+	        var TotalDay = weekDay +" "+DayDate+" "+Image+" "+Temps; 
+            //nextRow.setAttribute("style", "padding:11px");
+            nextRow.innerHTML += TotalDay +"</br>";
+            Forecast.appendChild(nextRow); 
+            } 
+            wrapper.appendChild(Forecast);
         }
 		
 //////////ALERT FOR DarkSKY ONLY////////////////////
