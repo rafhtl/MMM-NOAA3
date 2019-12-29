@@ -157,12 +157,12 @@ You can add this to your config.js to change it if you'd like ... like this ->
 ## CSS STYLES
 
 * You can choose one of 5 styles [colors] for NOAA3 
-     # MMM-NOAA1
-     # MMM-NOAA2
-     # MMM-NOAA3
-     # MMM-NOAA4
-     # and NOW
-     # MMM-NOAA5 (smaller foot print!!)
+     * MMM-NOAA1
+     * MMM-NOAA2
+     * MMM-NOAA3
+     * MMM-NOAA4
+     * and NOW
+     * MMM-NOAA5 (smaller foot print!!)
 
 ## NOAA1 (Color style #1)  
 ![](examples/1.png) 
@@ -181,6 +181,9 @@ You can add this to your config.js to change it if you'd like ... like this ->
 ![](examples/43.png) 
 ![](examples/44.png) 
 ![](examples/45.png)
+
+## NOAA5 (Color style #3)
+![](examples/noaa5.PNG)
 
 ## What's the mouseover?
 Now when you mouse over current temp at the top you'll get your forecast.....
