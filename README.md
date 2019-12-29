@@ -156,7 +156,13 @@ You can add this to your config.js to change it if you'd like ... like this ->
 	
 ## CSS STYLES
 
-* You can choose one of 4 styles [colors] for NOAA3
+* You can choose one of 5 styles [colors] for NOAA3 
+MMM-NOAA1
+MMM-NOAA2
+MMM-NOAA3
+MMM-NOAA4
+and NOW
+MMM-NOAA5 (smaller foot print!!)
 
 ## NOAA1 (Color style #1)  
 ![](examples/1.png) 
