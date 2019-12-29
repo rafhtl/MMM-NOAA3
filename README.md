@@ -183,7 +183,7 @@ You can add this to your config.js to change it if you'd like ... like this ->
 ![](examples/45.png)
 
 ## NOAA5 (More condensed)
-![](examples/noaa5.PNG)
+![](examples/noaaShort.PNG)
 
 ## What's the mouseover?
 Now when you mouse over current temp at the top you'll get your forecast.....
