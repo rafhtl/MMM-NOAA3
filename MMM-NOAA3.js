@@ -368,7 +368,8 @@ Module.register("MMM-NOAA3", {
                     var lastDiv = document.createElement('div');
                     var level = this.air.aqius;
 
-                    this.air.aqius > 0 && this.air.aqius <= 50 ? level = this.translate('Excellent') :
+		        this.air.aqius == undefined || null ? level = this.translate('N/A') :
+                        this.air.aqius > 0 && this.air.aqius <= 50 ? level = this.translate('Excellent') :
                         this.air.aqius > 50 && this.air.aqius <= 100 ? level = this.translate('Good') :
                         this.air.aqius > 100 && this.air.aqius <= 150 ? level = this.translate('Lightly Polluted') :
                         this.air.aqius > 151 && this.air.aqius <= 200 ? level = this.translate('Moderately Polluted') :
