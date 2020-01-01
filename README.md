@@ -25,12 +25,10 @@ There are multiple providers to choose from:  You only need one api from one of 
 Remember not all providers are created equal... Some are a bit better than others :)
 
 * weatherbit ~ https://www.weatherbit.io/api
-* darksky ~ https://darksky.net/dev  //[userlat and userlong ONLY work with this right now]
-* apixu ~ https://www.apixu.com/
+* darksky ~ https://darksky.net/dev  //[userlat and userlong ONLY work with this right now] 
 * weatherunlocked ~ https://developer.weatherunlocked.com/   [provides both api and appid keys, need them both, see example]
 * accuweather ~ https://developer.accuweather.com/
-* openweather ~ https://openweathermap.org/api
-* yahoo [AS OF 1/3/2019 YAHOO WEATHER API NO LONGER WORKS, IT'S BEEN RETIRED]
+* openweather ~ https://openweathermap.org/api 
  
 ##    YOU WILL NEED YOUR LATITUDE AND LONGITUDE
  You can find them right here: 
@@ -48,14 +46,12 @@ Will default to EN if NO translation file is found.
 ## Provider name MUST be in the config.js. Here they are:
 	 
 * weatherbit  
-* darksky 
-* apixu 
+* darksky
 * weatherunlocked 
 * accuweather  
 * openweather 
-*  AS OF 1/3/2019 THIS WILL NO LONGER WORK yahoo 
     
-* For all of them EXCEPT YAHOO and WEATHERUNLOCKED
+* For all of them EXCEPT WEATHERUNLOCKED
      ```   {
         module: 'MMM-NOAA3',
 	position: 'top_left',
@@ -85,10 +81,7 @@ Will default to EN if NO translation file is found.
 	 }
          },
 	```
-* Yahoo Example:
-	```
-	 AS OF 1/3/2019 THE YAHOO API WAS RETIRED AND NO LONGER WORKS.
-	```
+
 	
 It seems that when using Accuweather, the zip code needs to be the 6 digit code from accuweather.com's website found after typing in the zip code into their search bar.
 From Zip Code "13502" returns "329671"-which is what I put in my config file in order to get it to display local weather.
@@ -107,25 +100,7 @@ zip: '329671', //MUST have valid zip Code
 	        userlon: "xxxx"  //MUST HAVE BOTH
 		zip: "11111" //MUST have valid zip Code
 	}
-    },	
-	```
-	
-* Apixu Example:
-	```
-	 {
-        module: 'MMM-NOAA3',
-	position: 'top_left',
-        config: {
-		provider: "accuweather",   
-		airKey: "YOUR API KEY", 
-	        css: "NOAA3",                 // THIS MUST CONTAIN A CSS STYLE NAME 
-		userlat: "xxxx", //MUST HAVE BOTH
-	        userlon: "xxxx"  //MUST HAVE BOTH
-		city: "elmira" //MUST have valid zip Code
-	}
-    },	
-	```	
-	
+    },
 	
 ## ISSUES
 
