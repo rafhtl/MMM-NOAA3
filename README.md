@@ -162,7 +162,7 @@ You can add this to your config.js to change it if you'd like ... like this ->
      * MMM-NOAA3
      * MMM-NOAA4
      * and NOW
-     * MMM-NOAA5 (smaller foot print!!)
+     * MMM-NOAA5 (smaller foot print!!  USE at own risk, still needs further testing)
 
 ## NOAA1 (Color style #1)  
 ![](examples/1.png) 
