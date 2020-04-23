@@ -1,4 +1,9 @@
 This repository is maintained by Cowboysdude 
+
+Due to Darksky no longer offering free api keys this module is quickly reaching the deprecated state.
+We've lost 3 providers so far in the past year..... There are no new providers offering api keys and 
+at this point you can use at your own risk.  
+
 [This is the third version of this module for MagicMirror2]
 
 # MMM-NOAA V3.0
